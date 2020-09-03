@@ -9,7 +9,7 @@ class DossierLibrary {
     // Getting user data
     const userResponse = await fetch(`https://api.github.com/users/${user}`, {
       headers: {
-        Authorization: "token a4169bf97d75a8bdc1188d65355932b55bc9e101",
+        authorization: "token 300bceeb7c2fabdf0567d1e0e0f6068526655b55",
       },
     });
     const userData = await userResponse.json();
@@ -19,7 +19,7 @@ class DossierLibrary {
       `https://api.github.com/users/${user}/repos?per_page=${this.repos_count}&sort=${this.repos_sort}`,
       {
         headers: {
-          Authorization: "token a4169bf97d75a8bdc1188d65355932b55bc9e101",
+          authorization: "token 300bceeb7c2fabdf0567d1e0e0f6068526655b55",
         },
       }
     );
