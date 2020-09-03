@@ -1,37 +1,39 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <!-- Set favicon -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Github Dossier</title>
     <link
       rel="shortcut icon"
       href="assets/ico/GithubDossierIco.png"
       type="image/x-icon"
     />
-    <!--Import Google Icon Font-->
-    <link
-      href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet"
-    />
-    <!--Import materialize.css-->
-    <link
-      type="text/css"
-      rel="stylesheet"
-      href="/assets/lib/css/Materialize/materialize.css"
-      media="screen,projection"
-    />
-    <!-- Import custom css -->
-    <link rel="stylesheet" href="assets/css/main.css" />
-
-    <!--Let browser know website is optimized for mobile-->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="assets/lib/css/bootstrap.css" />
   </head>
-
   <body>
-    <!--JavaScript at end of body for optimized loading-->
-    <script
-      type="text/javascript"
-      src="/assets/lib/js/Materialize/materialize.js"
-    ></script>
+    <nav class="navbar navbar-dark bg-primary mb-3">
+      <div class="container">
+        <a href="#" class="navbar-brand">GitHub Dossier</a>
+      </div>
+    </nav>
+    <div class="container searchContainer">
+      <div class="search card card-body">
+        <h1>Search GitHub Users</h1>
+        <p class="lead">Enter a username to fetch a user profile and repos</p>
+        <input
+          type="text"
+          id="searchUser"
+          class="form-control"
+          placeholder="GitHub Username..."
+        />
+      </div>
+      <br />
+      <div id="profile"></div>
+    </div>
+
+    <footer class="mt-5 p-3 text-center bg-light">GitHub Dossier &copy;</footer>
+
     <script src="assets/lib/js/API/HttpLibrary.js"></script>
     <script src="assets/js/UI.js"></script>
     <script src="assets/js/main.js"></script>
