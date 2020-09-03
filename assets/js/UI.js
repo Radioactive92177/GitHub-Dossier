@@ -19,7 +19,7 @@ class UI {
             <span class="badge badge-info">Following: ${user.following}</span>
             <br><br>
             <ul class="list-group">
-              <li class="list-group-item">Company: ${user.company}</li>
+              <li class="list-group-item">Name: ${user.name}</li>
               <li class="list-group-item">Website/Blog: <a href="https://${user.blog} target="_blank">${user.blog}</a></li>
               <li class="list-group-item">Location: ${user.location}</li>
               <li class="list-group-item">Member Since: ${user.created_at}</li>
@@ -27,7 +27,7 @@ class UI {
           </div>
         </div>
       </div>
-      <h3 class="page-heading mb-3">Latest Repos</h3>
+      <h3 class="page-heading mb-3">Latest Public Repos</h3>
       <div id="repos"></div>
     `;
   }
@@ -46,7 +46,7 @@ class UI {
             <div class="col-md-6">
             <span class="badge badge-primary">Stars: ${repo.stargazers_count}</span>
             <span class="badge badge-secondary">Watchers: ${repo.watchers_count}</span>
-            <span class="badge badge-success">Forks: ${repo.forms_count}</span>
+            <span class="badge badge-success">Forks: ${repo.forks_count}</span>
             </div>
           </div>
         </div>
@@ -55,5 +55,42 @@ class UI {
 
     // Output repos
     document.querySelector("#repos").innerHTML = output;
+  }
+
+  // Show alert message
+  showAlert(message, className) {
+    // Clear any remaining alerts
+    this.clearAlert();
+    // Create div
+    const div = document.createElement("div");
+    // Add classes
+    div.className = className;
+    // Add text
+    div.appendChild(document.createTextNode(message));
+    // Get Parent
+    const container = document.querySelector(".searchContainer");
+    // Get Search box
+    const search = document.querySelector(".search");
+    // Insert alert
+    container.insertBefore(div, search);
+
+    // Timeout after 3 sec
+    setTimeout(() => {
+      this.clearAlert();
+    }, 3000);
+  }
+
+  // Clear alert message
+  clearAlert() {
+    const currentAlert = document.querySelector(".alert");
+
+    if (currentAlert) {
+      currentAlert.remove();
+    }
+  }
+
+  // Clear Profile
+  clearProfile() {
+    this.profile.innerHTML = "";
   }
 }
