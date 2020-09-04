@@ -1,6 +1,20 @@
 class UI {
   constructor() {
     this.profile = document.querySelector("#profile");
+    this.months = [
+      "Jan",
+      "Feb",
+      "March",
+      "April",
+      "May",
+      "June",
+      "July",
+      "August",
+      "Sept",
+      "Oct",
+      "Nov",
+      "Dec",
+    ];
   }
 
   // Display profile in UI
@@ -10,20 +24,45 @@ class UI {
         <div class="row">
           <div class="col-md-3">
             <img class="img-fluid mb-2" src="${user.avatar_url}">
-            <a href="${user.html_url}" target="_blank" class="btn btn-primary btn-block mb-4">View Profile</a>
+            <a href="${
+              user.html_url
+            }" target="_blank" class="btn btn-primary btn-block mb-4">View Profile</a>
           </div>
           <div class="col-md-9">
-            <span class="badge badge-primary">Public Repos: ${user.public_repos}</span>
-            <span class="badge badge-secondary">Public Gists: ${user.public_gists}</span>
-            <span class="badge badge-success">Followers: ${user.followers}</span>
+            <span class="badge badge-primary">Public Repos: ${
+              user.public_repos
+            }</span>
+            <span class="badge badge-warning">Public Gists: ${
+              user.public_gists
+            }</span>
+            <span class="badge badge-success">Followers: ${
+              user.followers
+            }</span>
             <span class="badge badge-info">Following: ${user.following}</span>
             <br><br>
             <ul class="list-group">
               <li class="list-group-item">Name: ${user.name}</li>
-              <li class="list-group-item">Website/Blog: <a href="https://${user.blog}" target="_blank">${user.blog}</a></li>
+              <li class="list-group-item">Website/Blog: <a href="https://${
+                user.blog
+              }" target="_blank">${user.blog}</a></li>
               <li class="list-group-item">Location: ${user.location}</li>
-              <li class="list-group-item">Member Since: ${user.created_at}</li>
+              <li class="list-group-item">Member Since: ${
+                this.months[new Date(user.created_at).getMonth()] +
+                "-" +
+                new Date(user.created_at).getDate() +
+                "-" +
+                new Date(user.created_at).getFullYear()
+              }</li>
             </ul>
+            <br>
+            <span class="badge badge-${
+              user.hireable ? "success" : "danger"
+            }">Available for hire : ${user.hireable ? "Yes" : "No"}</span>
+            ${
+              user.twitter_username
+                ? `<span class="badge badge-info"><a href="https://twitter.com/${user.twitter_username}" class="text-white" target="_blank">Follow on Twitter</a></span>`
+                : ""
+            }
           </div>
         </div>
       </div>
@@ -45,7 +84,7 @@ class UI {
             </div>
             <div class="col-md-6">
             <span class="badge badge-primary">Stars: ${repo.stargazers_count}</span>
-            <span class="badge badge-secondary">Watchers: ${repo.watchers_count}</span>
+            <span class="badge badge-warning">Watchers: ${repo.watchers_count}</span>
             <span class="badge badge-success">Forks: ${repo.forks_count}</span>
             </div>
           </div>
