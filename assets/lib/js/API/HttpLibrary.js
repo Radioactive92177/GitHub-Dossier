@@ -1,7 +1,7 @@
 class DossierLibrary {
   constructor() {
     this.repos_count = 5;
-    this.repos_sort = "created: asc";
+    this.repos_sort = "created:asc";
   }
 
   // Get data from the API

@@ -8,7 +8,7 @@ const ui = new UI();
 const searchUser = document.querySelector("#searchUser");
 
 // Search input event listener
-searchUser.addEventListener("keydown", (e) => {
+searchUser.addEventListener("keyup", (e) => {
   // Get input text
   const userText = e.target.value;
 
