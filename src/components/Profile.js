@@ -16,13 +16,34 @@ const Profile = (props) => {
     hireable,
     twitter_username,
   } = props;
+
+  const months = [
+    "Jan",
+    "Feb",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "Sept",
+    "Oct",
+    "Nov",
+    "Dec",
+  ];
+  
   return (
     <Container>
       <div className="card card-body mb-3">
         <div className="row">
           <div className="col-md-3">
             <img src={avatar_url} alt="" className="img-fluid mb-2" />
-            <a href={html_url} className="btn btn-primary btn-block mb-4">
+            <a
+              href={html_url}
+              className="btn btn-primary btn-block mb-4"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
               View
             </a>
           </div>
@@ -42,22 +63,47 @@ const Profile = (props) => {
 
             <ul className="list-group">
               <li className="list-group-item">Name: {name}</li>
+
               <li className="list-group-item">
                 Wedsite/Blog:{" "}
-                <a href={blog} alt="">
+                <a href={blog} alt="" rel="noopener noreferrer" target="_blank">
                   {blog}
                 </a>
               </li>
+
               <li className="list-group-item">Location: {location}</li>
-              <li className="list-group-item">Member Since: {created_at}</li>
+
+              <li className="list-group-item">
+                Member Since:{" "}
+                {months[new Date(created_at).getMonth()] +
+                  "-" +
+                  new Date(created_at).getDate() +
+                  "-" +
+                  new Date(created_at).getFullYear()}
+              </li>
             </ul>
 
             <br />
 
-            <span className="badge badge-success">
-              Available for hire : {hireable}
+            <span className={`badge badge-${hireable ? "success" : "danger"}`}>
+              Available for hire : {hireable ? "Yes" : "No"}
             </span>
-            <span className="badge badge-info">Twitter : @{twitter_username}</span>
+
+            {twitter_username ? (
+              <span className="badge badge-info">
+                Twitter : @{" "}
+                <a
+                  href={`http://twitter.com/${twitter_username}`}
+                  rel="noopener noreferrer"
+                  target="_blank"
+                  style={{ color: "white" }}
+                >
+                  {twitter_username}
+                </a>
+              </span>
+            ) : (
+              ""
+            )}
           </div>
         </div>
       </div>
