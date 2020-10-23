@@ -13,7 +13,7 @@ export class SearchBar extends Component {
 
   render() {
     return (
-      <Container>
+      <Container className="my-2">
         <Card>
           <Card.Body>
             <h1>Search GitHub Users</h1>

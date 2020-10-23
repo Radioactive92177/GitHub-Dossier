@@ -31,7 +31,7 @@ const Profile = (props) => {
     "Nov",
     "Dec",
   ];
-  
+
   return (
     <Container>
       <div className="card card-body mb-3">
@@ -49,27 +49,40 @@ const Profile = (props) => {
           </div>
 
           <div className="col-md-9">
-            <span className="badge badge-primary">
+            <span className="badge badge-primary mx-1">
               Public Repos: {public_repos}
             </span>
-            <span className="badge badge-warning">
+            <span className="badge badge-warning mx-1">
               Public Gists: {public_gists}
             </span>
-            <span className="badge badge-success">Followers: {followers}</span>
-            <span className="badge badge-info">Following: {following}</span>
+            <span className="badge badge-success mx-1">
+              Followers: {followers}
+            </span>
+            <span className="badge badge-info mx-1">
+              Following: {following}
+            </span>
 
             <br />
             <br />
 
             <ul className="list-group">
               <li className="list-group-item">Name: {name}</li>
-
-              <li className="list-group-item">
-                Wedsite/Blog:{" "}
-                <a href={blog} alt="" rel="noopener noreferrer" target="_blank">
-                  {blog}
-                </a>
-              </li>
+              
+              {blog ? (
+                <li className="list-group-item">
+                  Wedsite/Blog:{" "}
+                  <a
+                    href={blog}
+                    alt=""
+                    rel="noopener noreferrer"
+                    target="_blank"
+                  >
+                    {blog}
+                  </a>
+                </li>
+              ) : (
+                ""
+              )}
 
               <li className="list-group-item">Location: {location}</li>
 
@@ -85,20 +98,22 @@ const Profile = (props) => {
 
             <br />
 
-            <span className={`badge badge-${hireable ? "success" : "danger"}`}>
+            <span
+              className={`badge badge-${hireable ? "success" : "danger"} mx-1`}
+            >
               Available for hire : {hireable ? "Yes" : "No"}
             </span>
 
             {twitter_username ? (
-              <span className="badge badge-info">
-                Twitter : @{" "}
+              <span className="badge badge-info mx-1">
+                Twitter :{" "}
                 <a
                   href={`http://twitter.com/${twitter_username}`}
                   rel="noopener noreferrer"
                   target="_blank"
                   style={{ color: "white" }}
                 >
-                  {twitter_username}
+                  @{twitter_username}
                 </a>
               </span>
             ) : (
