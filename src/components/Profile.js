@@ -66,10 +66,15 @@ const Profile = (props) => {
             <br />
 
             <ul className="list-group">
-              <li className="list-group-item">Name: {name}</li>
-              
+              <li className="list-group-item" style={{ fontWeight: "bolder" }}>
+                Name: {name}
+              </li>
+
               {blog ? (
-                <li className="list-group-item">
+                <li
+                  className="list-group-item"
+                  style={{ fontWeight: "bolder" }}
+                >
                   Wedsite/Blog:{" "}
                   <a
                     href={blog}
@@ -84,9 +89,11 @@ const Profile = (props) => {
                 ""
               )}
 
-              <li className="list-group-item">Location: {location}</li>
+              <li className="list-group-item" style={{ fontWeight: "bolder" }}>
+                Location: {location}
+              </li>
 
-              <li className="list-group-item">
+              <li className="list-group-item" style={{ fontWeight: "bolder" }}>
                 Member Since:{" "}
                 {months[new Date(created_at).getMonth()] +
                   "-" +

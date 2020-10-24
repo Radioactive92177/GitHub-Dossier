@@ -4,6 +4,7 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import SearchBar from "./components/SearchBar";
 import Profile from "./components/Profile";
+import Repos from "./components/Repos";
 import UserNotFound from "./components/UserNotFound";
 
 class App extends Component {
@@ -20,14 +21,25 @@ class App extends Component {
     created_at: null,
     hireable: "",
     twitter_username: "",
+    repos: {},
     status: "",
   };
 
   onSearchSubmit = async (userName) => {
-    // ** Fetching Profile Data
     try {
+      // ** Fetching Profile Data
       const { data } = await axios.get(
         `https://api.github.com/users/${userName}`,
+        {
+          headers: {
+            authorization: "token 300bceeb7c2fabdf0567d1e0e0f6068526655b55",
+          },
+        }
+      );
+
+      // ** Fetching Latest repos
+      const repoResponse = await axios.get(
+        `https://api.github.com/users/${userName}/repos?per_page=5&sort=created:asc`,
         {
           headers: {
             authorization: "token 300bceeb7c2fabdf0567d1e0e0f6068526655b55",
@@ -47,13 +59,15 @@ class App extends Component {
         created_at: data.created_at,
         hireable: data.hireable,
         twitter_username: data.twitter_username,
+        repos: repoResponse.data,
         status: "User Found!",
       });
     } catch (error) {
       this.setState({ status: "Not Found" });
     }
   };
-  render() {
+
+  renderUserData = () => {
     const {
       avatar_url,
       html_url,
@@ -67,8 +81,32 @@ class App extends Component {
       created_at,
       hireable,
       twitter_username,
-      status,
+      repos,
     } = this.state;
+
+    return (
+      <>
+        <Profile
+          avatar_url={avatar_url}
+          html_url={html_url}
+          public_repos={public_repos}
+          public_gists={public_gists}
+          followers={followers}
+          following={following}
+          name={name}
+          blog={blog}
+          location={location}
+          created_at={created_at}
+          hireable={hireable}
+          twitter_username={twitter_username}
+        />
+        <Repos repoData={repos} />
+      </>
+    );
+  };
+
+  render() {
+    const { status } = this.state;
 
     return (
       <>
@@ -77,20 +115,7 @@ class App extends Component {
         <SearchBar onSubmit={this.onSearchSubmit} />
 
         {status === "User Found!" ? (
-          <Profile
-            avatar_url={avatar_url}
-            html_url={html_url}
-            public_repos={public_repos}
-            public_gists={public_gists}
-            followers={followers}
-            following={following}
-            name={name}
-            blog={blog}
-            location={location}
-            created_at={created_at}
-            hireable={hireable}
-            twitter_username={twitter_username}
-          />
+          this.renderUserData()
         ) : status === "" ? (
           ""
         ) : (
