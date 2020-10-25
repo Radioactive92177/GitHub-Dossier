@@ -18,8 +18,8 @@ const Repo = (props) => {
         </div>
         <div className="col-md-6">
           <span className="badge badge-primary">Stars: {stargazers_count}</span>
-          <span className="badge badge-warning">Stars: {watchers_count}</span>
-          <span className="badge badge-success">Stars: {forks_count}</span>
+          <span className="badge badge-warning">Watchers: {watchers_count}</span>
+          <span className="badge badge-success">Forks: {forks_count}</span>
         </div>
       </div>
     </div>
