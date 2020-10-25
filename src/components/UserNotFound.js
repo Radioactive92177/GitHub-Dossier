@@ -10,7 +10,9 @@ const UserNotFound = () => {
           Looks like the user does not exist, please enter the correct username
         </p>
         <hr />
-        <p className="text-center">Also, check if your internet is properly working</p>
+        <p className="text-center">
+          Also, check if your internet is properly working
+        </p>
       </Alert>
     </Container>
   );
