@@ -8,7 +8,7 @@
 
 <br>
 
-> As mentioned in the **description**, this project was associated to [Bradtravery](https://github.com/bradtraversy)'s Modern JavaScript course.
+> As mentioned in the **description**, this project was associated to [Brad Traversy](https://github.com/bradtraversy)'s Modern JavaScript course.
 > 
 > <br>
 > 
