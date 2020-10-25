@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import axios from "axios";
+import github from "./api/github";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import SearchBar from "./components/SearchBar";
@@ -28,23 +28,11 @@ class App extends Component {
   onSearchSubmit = async (userName) => {
     try {
       // ** Fetching Profile Data
-      const { data } = await axios.get(
-        `https://api.github.com/users/${userName}`,
-        {
-          headers: {
-            authorization: "token 300bceeb7c2fabdf0567d1e0e0f6068526655b55",
-          },
-        }
-      );
+      const { data } = await github.get(`/users/${userName}`);
 
       // ** Fetching Latest repos
-      const repoResponse = await axios.get(
-        `https://api.github.com/users/${userName}/repos?per_page=5&sort=created:asc`,
-        {
-          headers: {
-            authorization: "token 300bceeb7c2fabdf0567d1e0e0f6068526655b55",
-          },
-        }
+      const repoResponse = await github.get(
+        `/users/${userName}/repos?per_page=5&sort=created:asc`
       );
       this.setState({
         avatar_url: data.avatar_url,

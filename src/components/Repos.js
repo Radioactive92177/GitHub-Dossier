@@ -12,7 +12,7 @@ const Repos = ({ repoData }) => {
           name={repo.name}
           stargazers_count={repo.stargazers_count}
           watchers_count={repo.watchers_count}
-          forks_count={repo.Reposforks_count}
+          forks_count={repo.forks_count}
         />
       ))}
     </Container>
