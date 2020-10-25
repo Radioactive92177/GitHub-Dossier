@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/GitHub-Dossier/static/css/main.ddaa0c25.chunk.css",
+    "main.js": "/GitHub-Dossier/static/js/main.617dc5d3.chunk.js",
+    "main.js.map": "/GitHub-Dossier/static/js/main.617dc5d3.chunk.js.map",
+    "runtime-main.js": "/GitHub-Dossier/static/js/runtime-main.71548a1b.js",
+    "runtime-main.js.map": "/GitHub-Dossier/static/js/runtime-main.71548a1b.js.map",
+    "static/js/2.0814bfec.chunk.js": "/GitHub-Dossier/static/js/2.0814bfec.chunk.js",
+    "static/js/2.0814bfec.chunk.js.map": "/GitHub-Dossier/static/js/2.0814bfec.chunk.js.map",
+    "index.html": "/GitHub-Dossier/index.html",
+    "precache-manifest.75228f616585b8e8c4c410dbc5d46171.js": "/GitHub-Dossier/precache-manifest.75228f616585b8e8c4c410dbc5d46171.js",
+    "service-worker.js": "/GitHub-Dossier/service-worker.js",
+    "static/css/main.ddaa0c25.chunk.css.map": "/GitHub-Dossier/static/css/main.ddaa0c25.chunk.css.map",
+    "static/js/2.0814bfec.chunk.js.LICENSE.txt": "/GitHub-Dossier/static/js/2.0814bfec.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.71548a1b.js",
+    "static/js/2.0814bfec.chunk.js",
+    "static/css/main.ddaa0c25.chunk.css",
+    "static/js/main.617dc5d3.chunk.js"
+  ]
+}
