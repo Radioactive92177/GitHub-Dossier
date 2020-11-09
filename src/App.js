@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Search from "./pages/Search";
 import UserProfile from "./pages/UserProfile";
 import Repos from "./components/Repos";
+import Languages from "./components/Languages";
 import GhPolyglot from "gh-polyglot";
 import axios from "axios";
 
@@ -88,6 +89,7 @@ export class App extends Component {
       hireable,
       twitter_username,
       repos,
+      languagesData,
     } = this.state;
 
     return (
@@ -107,13 +109,14 @@ export class App extends Component {
           twitter_username={twitter_username}
         />
         <Repos repos={repos} />
+        <Languages languagesData={languagesData} />
       </>
     );
   };
 
   render() {
     const { status } = this.state;
-    console.log(this.state.repos);
+    console.log(this.state.languagesData);
     return (
       <>
         <Search onSearchSubmit={this.onSearchSubmit} />
