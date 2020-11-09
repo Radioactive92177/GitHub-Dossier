@@ -1,9 +1,10 @@
 import React from "react";
+import SearchBar from "../components/SearchBar";
 
-const Search = () => {
+const Search = ({onSearchSubmit}) => {
   return (
     <>
-      <h1>Search</h1>
+      <SearchBar onSearchSubmit={onSearchSubmit}/>
     </>
   );
 };
