@@ -1,9 +1,9 @@
 import React from "react";
 
-const ProfilePic = () => {
+const ProfilePic = ({ pic }) => {
   return (
     <>
-      <h1>Profile Pic</h1>
+      <img src={`${pic}`} alt="" />
     </>
   );
 };

@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import Search from "./pages/Search";
+import UserProfile from "./pages/UserProfile";
+import Repos from "./components/Repos";
 import GhPolyglot from "gh-polyglot";
 import axios from "axios";
 
@@ -71,11 +73,56 @@ export class App extends Component {
     }
   };
 
+  renderUserData = () => {
+    const {
+      avatar_url,
+      html_url,
+      public_repos,
+      public_gists,
+      followers,
+      following,
+      name,
+      blog,
+      location,
+      created_at,
+      hireable,
+      twitter_username,
+      repos,
+    } = this.state;
+
+    return (
+      <>
+        <UserProfile
+          avatar_url={avatar_url}
+          html_url={html_url}
+          public_repos={public_repos}
+          public_gists={public_gists}
+          followers={followers}
+          following={following}
+          name={name}
+          blog={blog}
+          location={location}
+          created_at={created_at}
+          hireable={hireable}
+          twitter_username={twitter_username}
+        />
+        <Repos repos={repos} />
+      </>
+    );
+  };
+
   render() {
-    console.log(this.state);
+    const { status } = this.state;
+    console.log(this.state.repos);
     return (
       <>
         <Search onSearchSubmit={this.onSearchSubmit} />
+
+        {status === "User Found!"
+          ? this.renderUserData()
+          : status === ""
+          ? ""
+          : "User Not Found"}
       </>
     );
   }
