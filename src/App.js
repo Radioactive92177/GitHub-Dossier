@@ -23,6 +23,7 @@ export class App extends Component {
     repos: {},
     status: "",
     languagesData: [],
+    searched: false,
   };
 
   onSearchSubmit = async (userName) => {
@@ -68,6 +69,7 @@ export class App extends Component {
         twitter_username: data.twitter_username,
         repos: repoResponse.data,
         status: "User Found!",
+        searched: true,
       });
     } catch (error) {
       this.setState({ status: "Not Found" });
@@ -94,6 +96,14 @@ export class App extends Component {
 
     return (
       <>
+        <a
+          href="/"
+          onClick={() => {
+            window.location.reload();
+          }}
+        >
+          Go back
+        </a>
         <UserProfile
           avatar_url={avatar_url}
           html_url={html_url}
@@ -113,19 +123,25 @@ export class App extends Component {
       </>
     );
   };
+  changePage = () => {
+    const { status } = this.state;
+    return status === "User Found!"
+      ? this.renderUserData()
+      : status === ""
+      ? ""
+      : "User Not Found";
+  };
 
   render() {
-    const { status } = this.state;
-    console.log(this.state.languagesData);
+    const { searched } = this.state;
+    console.log(this.state.searched);
     return (
       <>
-        <Search onSearchSubmit={this.onSearchSubmit} />
-
-        {status === "User Found!"
-          ? this.renderUserData()
-          : status === ""
-          ? ""
-          : "User Not Found"}
+        {searched === false ? (
+          <Search onSearchSubmit={this.onSearchSubmit} />
+        ) : (
+          this.changePage()
+        )}
       </>
     );
   }
