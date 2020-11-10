@@ -102,7 +102,7 @@ export class App extends Component {
             window.location.reload();
           }}
         >
-          Go back
+          Search another
         </a>
         <UserProfile
           avatar_url={avatar_url}
@@ -134,7 +134,6 @@ export class App extends Component {
 
   render() {
     const { searched } = this.state;
-    console.log(this.state.searched);
     return (
       <>
         {searched === false ? (
