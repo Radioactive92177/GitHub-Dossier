@@ -20,6 +20,7 @@ export class App extends Component {
     created_at: null,
     hireable: "",
     twitter_username: "",
+    bio: "",
     repos: {},
     status: "",
     languagesData: [],
@@ -67,6 +68,7 @@ export class App extends Component {
         created_at: data.created_at,
         hireable: data.hireable,
         twitter_username: data.twitter_username,
+        bio: data.bio,
         repos: repoResponse.data,
         status: "User Found!",
         searched: true,
@@ -133,7 +135,8 @@ export class App extends Component {
   };
 
   render() {
-    const { searched } = this.state;
+    const { searched, bio } = this.state;
+    console.log(bio);
     return (
       <>
         {searched === false ? (
