@@ -31,22 +31,12 @@ export class App extends Component {
     try {
       // ? Fetching Profile data
       const { data } = await axios.get(
-        `https://api.github.com/users/${userName}`,
-        {
-          headers: {
-            authorization: "token 300bceeb7c2fabdf0567d1e0e0f6068526655b55",
-          },
-        }
+        `https://api.github.com/users/${userName}`
       );
 
       // ? Fetching Repo data
       const repoResponse = await axios.get(
-        `https://api.github.com/users/${userName}/repos?per_page=5&sort=created_asc`,
-        {
-          headers: {
-            authorization: "token 300bceeb7c2fabdf0567d1e0e0f6068526655b55",
-          },
-        }
+        `https://api.github.com/users/${userName}/repos?per_page=5&sort=created_asc`
       );
 
       // ? Getting Language Data
